@@ -9,16 +9,21 @@ When you're done, you can delete the content in this README and update the file 
 # Armá Tu Evento
 Para facilitar el trato entre organizadores y proveedores en el armado de eventos.
 
-## Edit a file
+## Setup del proyecto
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+(Esta guía quizá se encuentre incompleta, es probable que haya que correr comandos como npm, yarn u otros managers de packetes para instalar las dependencias de AngularJS.)
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+Para levantar el servidor de Laravel/Angular y probar la plataforma
+en una nueva PC(Linux), hacer lo siguiente:
+
+1. Tener **Composer, PHP7 y MariaDB** instalados (con base de datos en MariaDB preparada) y el archivo .env configurado.
+2. Utilizando **composer** hacer un install de **Laravel** para obtener las dependencias, quizá deba ignorar algunos requerimientos.
+3. Levantar la base de datos de MariaDB.
+4. Utilizando **PHP7** llamar a los comandos artisan key:generate, artisan migrate, artisan seed (para staging de datos de prueba), y artisan serve.
+5. La plataforma debería estar servida en localhost:8000.
+6. Para levantar la plataforma a la web utilizar **Apache**.
+
+Para levantar la plataforma en Windows utilizar XAMPP.
 
 ---
 
