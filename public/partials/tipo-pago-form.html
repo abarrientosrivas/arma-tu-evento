@@ -1,0 +1,27 @@
+	<div class="card w-10 mb-4" style="width: 15rem;">
+		<h5 class="card-header">{{title}}</h5>
+	</div>
+	<form class="col-md-6" ng-submit="editPrecio()">
+		<div class="form-group">
+			<label for="precio_periodo"><strong>Periodo</strong></label>
+			<input type="text"
+				id="precio_periodo"
+				tabindex="1"
+				ng-model="tipo.periodo"
+				ng-disabled="true"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+		<div class="form-group">
+			<label for="precio_precio"><strong>Precio</strong></label>
+			<input type="number"
+				id="precio_precio"
+				tabindex="2"
+				ng-model="tipo.precio"
+				ng-disabled="action != 'edit'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+
+		<button type="submit"
+				class="btn btn-primary waves-effect"
+				tabindex="3">{{submitButton}}</button>
+	</form>

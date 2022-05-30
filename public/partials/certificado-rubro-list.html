@@ -1,0 +1,23 @@
+	<table class="table">
+		<tbody>
+			<tr ng-repeat="rubro in rubros | filter:search">
+                <td>{{rubro.nombre}}</td>
+				<td class="text-right">
+					<div class="btn-group btn-group-sm" role="group" aria-label="...">
+                        <button type="button"
+							class="btn btn-default btn-xs"
+                    	    aria-label="Delete"
+                            ng-click="agregarRubro(rubro.id)">
+                            Agregar rubro
+						</button>
+                        <button type="button"
+							class="btn btn-default btn-xs"
+                    	    aria-label="Delete"
+                    	    ng-click="removeRubro(rubro.id)">
+            	            <i class="material-icons">delete</i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>

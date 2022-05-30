@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="card">
+		<h5 class="card-header">Denuncias registradas</h5>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-sm table-hover">
+			<thead>
+				<div class="card-header">
+					<div class="input-field">
+						<i class="material-icons prefix">search</i>
+						<input placeholder="Buscar" type="text" ng-model="search">
+					</div>
+				</div>
+				<tr>
+					<!-- <th>#</th> -->
+					<th>Título</th>
+					<th ng-hide="action=='verClienteDenuncias'">Id Cliente</th>
+          			<th>Id Post</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="denuncia in denuncias | filter:search">
+					<!-- <td ng-click="viewDenuncia(denuncia.id)">{{denuncia.id}}</td> -->
+					<td ng-click="viewDenuncia(denuncia.id)" 
+						onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{denuncia.titulo}}
+					</td>
+					<td ui-sref="clientesProfile({id:denuncia.cliente_id})"
+						ng-hide="action=='verClienteDenuncias'"
+						onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{denuncia.cliente_id}}
+					</td>
+					<td ui-sref="postsView({postId:denuncia.post_id})"
+					  	onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{denuncia.post_id}}
+					</td>
+					<td class="text-right">
+						<div class="btn-group btn-group-sm" role="group" aria-label="...">
+							<!-- <a type="button"
+								class="btn btn-default waves-effect"
+								ui-sref="verDenuncia({id:denuncia.id})">
+								<i class="material-icons">visibility</i>
+							</a> -->
+							<button type="button"
+								class="btn btn-default waves-effect"
+								ng-click="removeDenuncia(denuncia)">
+								<i class="material-icons">delete</i>
+							</button>
+
+						</div>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</div>

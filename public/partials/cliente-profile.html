@@ -1,0 +1,86 @@
+<div class="container">
+	<div class="row pt-3 pb-5">
+		<div class="col-4">
+			<!-- <a href="#!/clientes/edit/{{cliente.id}}"> -->
+				<img ng-src="/assets/cliente-profile-image/{{cliente.profileImage}}"
+						 class="rounded-circle img-fluid"
+						 alt="Foto de perfil"
+						 ng-show="!image"/>
+			<!-- </a> -->
+			<img class="img-thumbnail img-fluid" ng-show="image" ng-src="{{image.resized.dataURL}}" type="{{image.file.type}}"/>
+			<!-- <div ng-if="currentUser.rol == 'cliente' && currentUser.id == cliente.id" class="btn-group-vertical"> -->
+				<div class="btn-group-vertical">
+				<button class="btn btn-default"
+				ng-show="currentUser.rol == 'cliente' && currentUser.id == cliente.id"
+							input-image
+							append-data-uri
+							resize
+	            resize-max-height="250"
+	            resize-max-width="250"
+	            resize-quality="0.7"
+							name="image"
+							ng-model="image">
+							Seleccionar foto de perfil
+				</button>
+				<button class="btn btn-default"
+							ng-click="profileImage()"
+							ng-hide="!image">
+							Guardar foto de perfil
+				</button>
+			</div>
+		</div>
+		<div class="col-8">
+			<div class="row">
+				<h1> {{cliente.nombre}} {{cliente.apellido}} </h1>
+				<a type="button"
+					ng-if="currentUser.rol=='proveedor'"
+					class="btn btn-default"
+					ng-click="gotoChat(currentUser.id, cliente.id)">
+					Enviar mensaje
+				</a>
+				<div ng-if="currentUser.rol == 'cliente' && currentUser.id == cliente.id"
+					class="btn-group btn-group-sm h-50 mt-3 mx-3" 
+					role="group" 
+					aria-label="...">
+					<a type="button"
+						class="btn btn-default"
+						ui-sref="clientesEdit({id: cliente.id})">
+						editar
+					</a>
+					<a type="button"
+						class="btn btn-default"
+						ui-sref="clienteDenuncias({id: cliente.id})">
+						denuncias
+					</a>
+					<a type="button"
+						class="btn btn-default"
+						ui-sref="clienteResenas({id: cliente.id})">
+						reseñas
+					</a>
+					<a type="button"
+						class="btn btn-default"
+						ui-sref="clienteConversations({id: cliente.id})">
+						chats
+					</a>
+				</div>
+			</div>
+			<hr class="my-2">
+			<div class="container">
+				<ul class="list-inline">
+					<li class="list-inline-item"> <strong>{{totalEventos}}</strong> eventos </li>
+				</ul>
+			</div>
+			<span> {{cliente.bio}} </span>
+		</div>
+	</div>
+</div>
+<br>
+<div class="container">
+	<a type="button"
+		ng-if="currentUser.rol == 'cliente' && currentUser.id == cliente.id"
+		class="btn btn-primary"
+		href="#!/resultados/nan/nan">
+		Crear nuevo evento
+	</a>
+	<div ng-include="'/partials/evento-list.html'"></div>
+</div>

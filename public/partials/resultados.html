@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row" ng-include="'/partials/organizador.html'"></div>
+<button type="action" 
+		class="btn btn-primary"
+		ng-if="currentUser.rol == 'cliente'"
+		ng-show="action=='results'"
+		ng-click="createEvent()">Crear evento</button>
+<button type="action" 
+		class="btn btn-warning"
+		ng-if="currentUser.rol == 'cliente'"
+		ng-show="action=='newEvent'"
+		ng-click="searchPosts()">Volver a buscar</button>
+<button type="action" 
+		class="btn btn-success"
+		ng-if="currentUser.rol == 'cliente'"
+		ng-show="action=='newEvent'"
+		ng-click="saveEvent()">Guardar evento</button>
+<h6 ng-show="action=='results'">Resultados encontrados: {{posts.length}}</h6>
+<div class="row">
+	<!-- <div class="col-12 col-sm-7 col-md-8 col-lg-9">
+		<div class="card">
+			<div class="card-header">Tu evento</div>
+		</div>
+		<div ng-include="'partials/post-list.html'"></div>
+	</div> -->
+	<div class="col-12">
+		<ul ng-show="action=='results'" class="nav nav-tabs">
+			<li class="nav-item active">
+				<a class="nav-link p-1 py-sm-2 px-sm-1 p-lg-3" role="tab" data-toggle="tab" ng-click="allPosts()">Todo</a>
+			</li>
+			<li class="nav-item" ng-repeat="rubro in rubros">
+				<a class="nav-link p-1 py-sm-2 px-sm-1 p-lg-3" role="tab" data-toggle="tab" ng-click="filterPosts(rubro)">{{rubro.nombre}}</a>
+			</li>
+		</ul>
+		<div ng-include="'/partials/post-list.html'"></div>
+	</div>
+</div>
+</div>

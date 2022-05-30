@@ -1,0 +1,64 @@
+<div class="container">
+<h5 class="card-header">¿Por qué querés denunciar la publicación?</h5>
+<form ng-submit="saveDenuncia()" name="denunciaForm">
+
+  <!-- <div class="form-group">
+		<label for="denuncia_cliente">Cliente (provisorio)</label>
+		<input type="number"
+			class="form-control"
+			id="denuncia_cliente"
+			placeholder="Cliente"
+			tabindex="1"
+			ng-model="denuncia.cliente_id">
+	</div> -->
+
+	<div class="form-group">
+		<label for="denuncia_title">Título (*)</label>
+		<input type="text"
+			class="form-control"
+			id="denuncia_title"
+			placeholder="Título"
+      required
+      ng-disabled="action=='view'"
+			tabindex="2"
+			ng-model="denuncia.titulo">
+	</div>
+	<div class="form-group">
+			<label for="denuncia_desc">Descripción (*)</label>
+			<textarea type="text"
+					class="form-control"
+					id="denuncia_desc"
+					placeholder="Cuantanos más sobre tu denuncia"
+          required
+          ng-disabled="action=='view'"
+					tabindex="3"
+					ng-model="denuncia.descripcion"></textarea>
+	</div>
+  <div class="form-group" ng-show="action=='view'">
+			<label for="denuncia_cl_id">N° de Cliente</label>
+			<input type="number"
+					class="form-control"
+					id="denuncia_cl_id"
+          ng-disabled="action=='view'"
+					tabindex="4"
+					ng-model="denuncia.cliente_id">
+	</div>
+  <div class="form-group" ng-show="action=='view'">
+      <label for="denuncia_post_id">N° de Post</label>
+      <input type="number"
+          class="form-control"
+          id="denuncia_post_id"
+          ng-disabled="action=='view'"
+          tabindex="5"
+          ng-model="denuncia.post_id">
+  </div>
+	<button type="submit"
+				class="btn btn-primary waves-effect"
+				ng-show="action!='view'"
+        ng-disabled="denunciaForm.$invalid"
+				tabindex="4">
+        Denunciar
+  </button>
+  <span ng-show="action!='view'">Completa los campos obligatorios (*)</span>
+</form>
+</div>

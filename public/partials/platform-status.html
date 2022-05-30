@@ -1,0 +1,96 @@
+<div class="container">
+
+  <div class="card w-10 mb-4">
+    <h5 class="card-header">Estado de la plataforma</h5>
+  </div>
+
+  <div class="card-columns">
+      
+    <div class="card text-center">
+        <div class="card-header">
+          <h3>Clientes</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+		        ui-sref="clientesList">
+    	      Ver clientes registrados
+	        </a>
+        </div>
+        <div class="card-footer">
+          Clientes registrados <strong>{{clientes.length}}</strong>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Proveedores</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+		        ui-sref="proveedoresList">
+    	      Ver proveedores registrados
+	        </a>
+        </div>
+        <div class="card-footer">
+          Proveedores registrados <strong>{{proveedores.length}}</strong>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Rubros</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+		        ui-sref="rubros">
+    	      Ver rubros
+	        </a>
+        </div>
+        <div class="card-footer">
+          Rubros registrados <strong>{{rubros.length}}</strong>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Eventos</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+		        ui-sref="eventos">
+    	      Ver eventos
+	        </a>
+        </div>
+        <div class="card-footer">
+          Eventos registrados <strong>{{eventos.length}}</strong>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Reseñas</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+            ui-sref="resenas">
+            Ver reseñas
+          </a>
+        </div>
+        <div class="card-footer">
+          Reseñas registradas <strong>{{resenas.length}}</strong>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Publicaciones</h3>
+        </div>
+        <div class="card-body">
+          <a class="account-section-link"
+            ui-sref="posts">
+            Ver publicaciones
+          </a>
+        </div>
+        <div class="card-footer">
+          Publicaciones registradas <strong>{{posts.length}}</strong>
+        </div>
+      </div>
+
+    </div>
+
+</div>

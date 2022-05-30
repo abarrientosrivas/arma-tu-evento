@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="card">
+		<h5 class="card-header">Pagos de proveedores</h5>
+	</div>
+
+	<table class="table table-condensed table-hover">
+		<thead>
+			<div class="card-header">
+				<div class="input-field">
+        			<i class="material-icons prefix">search</i>
+        			<input placeholder="Buscar" type="text" ng-model="search">
+      			</div>
+			</div>
+
+			<tr>
+				<th>#</th>
+				<th>Proveedor</th>
+				<th>Tipo</th>
+        		<th>Monto</th>
+        		<th>Fecha de pago</th>
+        		<th class="text-right">Fecha de fin</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="pago in pagos | filter:search">
+				<td>{{pago.id}}</td>
+				<td>{{pago.nombre}}</td>
+				<td>{{pago.tipo}}</td>
+        		<td>$ {{pago.monto}}</td>
+				<td> {{pago.fecha_pago | date:'dd/MM/yyyy'}}</td>
+				<td class="text-right"> {{pago.fecha_fin | date:'dd/MM/yyyy'}}</td>
+				<td class="text-right">
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button"
+							class="btn btn-success waves-effect btn-sm float-sm-right"
+							aria-label="View"
+							disabled
+							ng-show="pago.facturado">
+							Facturado
+						</button>
+					</div>
+					<div class="btn-group" role="group" aria-label="...">
+            			<button type="button"
+							class="btn btn-default btn-xs"
+                    		aria-label="View"
+                    		ng-click="verPago(pago.id)">
+            				<i class="material-icons">visibility</i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

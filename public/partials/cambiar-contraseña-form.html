@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center pt-5">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <h3>Cambiar contraseña</h3>
+        <form>
+            <div class="form-group">
+                <!-- <label for="cliente_pass"><h6>Cambiar contraseña</h6></label> -->
+                <input type="password" 
+                    id="cliente_pass" 
+                    class="form-control" 
+                    placeholder="Cambiar contraseña" 
+                    ng-model="Cliente.password">
+            </div>
+            <div class="form-group">
+                <!-- <label for="confirm_pass"><h6>Confirmar contraseña</h6></label> -->
+                <input type="password" 
+                    id="confirm_pass" 
+                    class="form-control" 
+                    placeholder="Confirmar contraseña">
+            </div>
+            <button class="btn btn-primary" ng-click="cambiarPassword()">Guardar</button>
+        </form>
+    </div>
+</div>

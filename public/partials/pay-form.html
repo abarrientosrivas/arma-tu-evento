@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="container">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+
+<body>
+    <h2>Checkout</h2>
+    <table border="1" width="200">
+        <tr>
+            <td>
+                <h4>Su compra:</h4>
+                <p>art 1: 2 x $30</p>
+                <p>art 2: 1 x $4</p>
+                <p>Total: $64</p>
+            </td>
+        </tr>
+    </table>
+    <!-- <form method="POST" action="{!! URL::to('todopago') !!}"> -->
+    <form ng-submit="pagar()" method="POST">
+        <table>
+
+            <tr>
+                <td>Email Address:</td>
+                <td>
+                    <input type="email" name="EMAILCLIENTE" required/>
+                </td>
+            </tr>
+
+            <td colspan="2">
+                <h4>Parámetros Adicionales en el post inicial comunes a todos los rubros (datos de facturación):</h4>
+            </td>
+
+            <tr>
+                <td>Ciudad:</td>
+                <td>
+                    <input type="text" name="CSBTCITY" />
+                </td>
+            </tr>
+            <tr>
+                <td>País:</td>
+                <td>
+                    <select name="CSBTCOUNTRY">
+                        <option value="AR">Argentina</option>
+                        <option value="US">EEUU</option>
+                        <option value="UY">Uruguay</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Identificador del usuario:</td>
+                <td>
+                    <input name="CSBTCUSTOMERID" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>IP:</td>
+                <td>
+                    <input name="CSBTIPADDRESS" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>email:</td>
+                <td>
+                    <input name="CSBTEMAIL" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Primer Nombre</td>
+                <td>
+                    <input name="CSBTFIRSTNAME" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Apellido:</td>
+                <td>
+                    <input name="CSBTLASTNAME">
+                </td>
+            </tr>
+
+            <tr>
+                <td>telefono:</td>
+                <td>
+                    <input type="text" name="CSBTPHONENUMBER">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Código Postal</td>
+                <td>
+                    <input type="text" name="CSBTPOSTALCODE">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Provincia:</td>
+                <td>
+                    <select name="CSBTSTATE">
+                        <option value="U">Chubut</option>
+                        <option value="C">CABA</option>
+                        <option value="B">Buenos Aires</option>
+                        <option value="K">Catamarca</option>
+                        <option value="H">Chaco</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Domicilio:</td>
+                <td>
+                    <input type="text" name="CSBTSTREET1">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Complemento del domicilio:</td>
+                <td>
+                    <input type="text" name="CSBTSTREET2">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Moneda:</td>
+                <td>
+                    <input type="text" name="CSPTCURRENCY" value="ARS">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Total: </td>
+                <td>
+                    <input type="text" name="CSPTGRANDTOTALAMOUNT" value="64.00">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Canal de venta:</td>
+                <td>
+                    <select name="CSMDD6">
+                        <option value="Web">Web</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Telefono">Telefono</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Customer password Hash:</td>
+                <td>
+                    <input type="text" name="CSMDD9">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Historico de compras:</td>
+                <td>
+                    <input type="text" name="CSMDD10">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Celular:</td>
+                <td>
+                    <input type="text" name="CSMDD11">
+                </td>
+            </tr>
+        </table>
+
+        <tr>
+            <td colspan="2">
+                <button type="submit" name="AMOUNT" value="64.00">total a a pagar $64.00</button>
+            </td>
+        </tr>
+        {{ crsf_field() }}
+    </form>
+</body>
+
+</html>
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+			<h1>{{proveedor.nombre}}</h1>
+			<h3>Checkout</h3>
+      <hr class="my-2">
+      <h3>Usted va a pagar: ${{monto}}</h3>
+
+			<form ng-submit="pagar()" method="POST" name="pagoForm" class="col-md-4 mt-4">
+				<style>
+					input.ng-invalid.ng-dirty{border:1px solid red;}
+				</style>
+
+				<div class="form-group">
+					<label for="proveedor_nombre"><h6>Nombre: (requerido)</h6></label>
+					<input type="text"
+						id="proveedor_nombre"
+						placeholder="Ingrese su nombre"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="proveedor_apellido"><h6>Apellido: (requerido)</h6></label>
+					<input type="text"
+						id="proveedor_apellido"
+						placeholder="Ingrese su apellido"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="proveedor_mail"><h6>E-mail: (requerido)</h6></label>
+					<input type="email"
+						id="proveedor_mail"
+						placeholder="Ingrese su email"
+						required>
+				</div>
+
+        <button type="submit"
+          class="btn btn-primary"
+					ng-disabled="pagoForm.$invalid">
+          Pagar
+        </button>
+        <a type="button"
+          class="btn btn-danger"
+          ui-sref="proveedoresSuscripcion({id:proveedor.id})">
+          Cancelar
+        </a>
+      </form>
+</div>

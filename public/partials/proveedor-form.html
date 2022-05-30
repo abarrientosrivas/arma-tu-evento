@@ -1,0 +1,84 @@
+
+	<div class="card w-10 mb-4" style="width: 15rem;" ng-show="action == 'new'">
+		<h5 class="card-header">{{title}}</h5>
+	</div>
+	<form class="col-md-6" ng-submit="saveProveedor()">
+		<div class="form-group">
+			<label for="prov_nombre"><strong>Nombre</strong></label>
+			<input type="text"
+				id="prov_nombre"
+				placeholder="Nombre"
+				tabindex="1"
+				ng-model="proveedor.nombre"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+		<div class="form-group">
+			<label for="prov_cuit"><strong>Cuit</strong></label>
+			<input type="text"
+				id="prov_cuit"
+				placeholder="Cuit"
+				tabindex="2"
+				ng-model="proveedor.cuit"
+				ng-disabled="action != 'new'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+		<div class="form-group">
+			<label for="prov_mail"><strong>E-mail</strong></label>
+			<input type="email"
+				id="prov_mail"
+				placeholder="E-mail"
+				tabindex="3"
+				ng-model="proveedor.email"
+				ng-disabled="action != 'new'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+		<div class="form-group">
+			<label for="prov_rubro"><strong>Rubro principal</strong></label>
+			<select name="prov_rubro"
+					id="prov_rubro"
+					tabindex="4"
+					ng-model="proveedor.rubro"
+					ng-disabled="action == 'view'"
+					ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'"
+					ng-options="rubro.nombre for rubro in rubros track by rubro.id">
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="prov_descripcion"><strong>Descripción</strong></label>
+			<textarea type="text"
+					id="prov_descripcion"
+					placeholder="Descripción"
+					tabindex="5"
+					ng-model="proveedor.descripcion"
+					ng-disabled="action == 'view'"
+					ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'"></textarea>
+		</div>
+		<button type="submit"
+				class="btn btn-primary waves-effect"
+				ng-show="action != 'view'"
+				tabindex="6">{{submitButton}}</button>
+	</form>
+
+<!--a ng-show="action == 'view'" class="btn btn-primary waves-effect" href="#!/proveedores/view/{{proveedor.id}}/posts/new">Nueva publicación</a>
+
+<button ng-show="action == 'view'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	Nueva publicación
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Escribir publicación</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<div ng-include="'partials/post-form.html'"></div>
+		</div>
+	  </div>
+	</div>
+ </div>
+
+<div ng-show="action == 'view'" ng-include="'partials/post-list.html'"></div-->

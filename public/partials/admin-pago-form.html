@@ -1,0 +1,93 @@
+<div class="container">
+	<button type="button"
+		class="btn btn-success waves-effect btn-sm float-sm-right"
+		aria-label="View"
+		disabled
+		ng-show="pago.facturado">
+		Facturado
+	</button>
+	<h2>Datos de facturación</h2>
+	<h3>Proveedor</h3>
+	<hr class="my-2">
+	<!-- <ul class="list-inline"> -->
+	<li class="list-inline-item">
+    	<div class="form-group">
+			<label for="pago_prov"><h5>Nombre</h5></label>
+			<input type="text"
+				id="pago_prov"
+				ng-model="pago.nombre"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<li class="list-inline-item">
+		<div class="form-group">
+			<label for="pago_prov_cuit"><h5>Cuit</h5></label>
+			<input type="text"
+				id="pago_prov_cuit"
+				ng-model="pago.cuit"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<!-- </ul> -->
+	<li class="list-inline-item">
+		<div class="form-group">
+			<label for="pago_prov_mail"><h5>Email</h5></label>
+			<input type="text"
+				id="pago_prov_mail"
+				ng-model="pago.mail"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<h3>Compra</h3>
+	<hr class="my-2">
+	<li class="list-inline-item">
+		<div class="form-group">
+			<label for="pago_id"><h5>Compra Nro.</h5></label>
+			<input type="number"
+				id="pago_id"
+				ng-model="pago.id"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<li class="list-inline-item">
+		<div class="form-group">
+			<label for="pago_monto"><h5>Monto</h5></label>
+			<input type="number"
+				id="pago_monto"
+				ng-model="pago.monto"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<li class="list-inline-item">
+		<div class="form-group">
+			<label for="pago_fecha"><h5>Fecha de pago</h5></label>
+			<input type="date"
+				id="pago_fecha"
+				ng-model="pago.fecha_pago"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	</li>
+	<!-- <li class="list-inline-item"> -->
+		<div class="form-group">
+			<label for="pago_desc"><h5>Descripción</h5></label>
+			<input type="text"
+				id="pago_desc"
+				ng-model="pago.tipo"
+				ng-disabled="action == 'view'"
+				ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+		</div>
+	<!-- </li> -->
+	<p></p>
+	<button type="button"
+		class="btn btn-primary waves-effect btn-sm float-sm-right"
+		ng-click="facturado(pago.id)"
+		ng-show="!pago.facturado">
+		Marcar como facturado
+	</button>
+</div>

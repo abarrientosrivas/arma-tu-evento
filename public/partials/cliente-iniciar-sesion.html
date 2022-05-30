@@ -1,0 +1,36 @@
+<div class="card w-10" style="width: 18rem;">
+	<h5 class="card-header">Iniciar sesión como cliente</h5>
+</div>
+<!-- <form class="col-md-4 mt-4" ng-submit="saveCliente()" onsubmit="return confirm('Cliente creado');"> -->
+<form class="col-md-4 mt-4" ng-submit="loginCliente()" name="clienteForm">
+<!-- <form class="col-md-4 mt-4" action="{{ route('cliente.login') }}" name="clienteForm"> -->
+	<style>
+		input.ng-invalid.ng-dirty{border:1px solid red;}
+	</style>
+	<div class="form-group">
+		<label for="cliente_mail"><h6>E-mail</h6></label>
+		<input type="email"
+			id="cliente_mail"
+			placeholder="E-mail"
+			tabindex="3"
+			required
+			ng-model="Cliente.email"
+			ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+	</div>
+	<div class="form-group">
+		<label for="cliente_password"><h6>Contraseña</h6></label>
+		<input type="password"
+			id="cliente_password"
+			placeholder="Contraseña"
+			tabindex="4"
+			required
+			ng-model="Cliente.password"
+			ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+	</div>
+	<button type="submit"
+			class="btn btn-primary waves-effect"
+			ng-disabled="clienteForm.$invalid"
+			tabindex="5">Iniciar sesión
+	</button>
+	{{ csrf_field() }}
+</form>

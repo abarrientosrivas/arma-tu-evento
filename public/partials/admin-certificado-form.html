@@ -1,0 +1,81 @@
+<div class="container">
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
+    <div class="card w-10" style="width: 15rem;">
+        <h5 class="card-header">{{title}}</h5>
+    </div>
+    <form class="col-md-4 mt-4" ng-submit="saveCertificado()">
+        <div class="form-group" ng-show="currentUser.rol == 'admin'">
+            <label for="cert_titulo"><h6>Titulo</h6></label>
+            <input type="text"
+                id="cert_titulo"
+                placeholder="Titulo"
+                tabindex="1"
+                ng-model="certificado.titulo"
+                ng-disabled="action == 'view'"
+                ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'">
+        </div>
+        <div class="form-group" ng-hide="action == 'clienteNewCertificado'">
+            <label for="cert_descripcion"><h6>Descripción</h6></label>
+            <textarea type="text"
+                    id="cert_descripcion"
+                    placeholder="Descripción"
+                    tabindex="3"
+                    ng-model="certificado.descripcion"
+                    ng-disabled="action == 'view'"
+                    ng-class="action == 'view' ? 'form-control-plaintext' : 'form-control'"></textarea>
+        </div>
+        <!-- <div class="form-group" ng-show="action == 'adminNewCertificado' || action=='edit'">
+            <label for="cert_rubro">Rubro</label>
+            <select name="cert_rubro"
+                    id="cert_rubro"
+                    tabindex="5"
+                    ng-model="certificado.rubro"
+                    ng-class="action == 'viewPost' ? 'form-control-plaintext' : 'form-control'"
+                    ng-options="rubro.nombre for rubro in rubros track by rubro.id">
+            </select>
+        </div> -->
+        <div class="form-group form-inline" ng-show="action == 'adminNewCertificado'">
+            <label class="px-2" for="cert_obligatorio">Obligatorio</label>
+            <input type="checkbox"
+                class="float-right form-control"
+                id="cert_obligatorio"
+                tabindex="6"
+                checked
+                ng-model="certificado.obligatorio">
+        </div>
+
+        <div class="form-group" ng-show="action!='view'">
+            <label for="cert_rubro"><h6>Rubros</h6></label>
+            <!-- <div ng-include="'/partials/certificado-rubro-list.html'"></div> -->
+            <select class="form-control select2-multiple" name="rubros[]" multiple="multiple" id="cert_rubro"
+                ng-model="rbrs"
+                ng-options="rubro.nombre for rubro in rubros track by rubro.id">
+            </select>
+        </div>
+        <div class="form-group" ng-if="action=='view'">
+            <label for="cert_rubro"><h6>Rubros 2</h6></label>
+            <select class="form-control select2-multiple" name="rubros[]" multiple="multiple" id="cert_rubro"
+                ng-model="rubros"
+                disabled
+                ng-options="rubro.nombre for rubro in rubros track by rubro.id">
+            </select>
+        </div>
+        
+        <button type="button"
+                class="btn btn-primary waves-effect"
+                ng-show="currentUser.rol == 'admin'"
+                ui-sref="certificadosAdmin"
+                tabindex="7">Volver
+        </button>        
+        <button type="submit"
+                class="btn btn-primary waves-effect"
+                ng-show="action != 'view'"
+                tabindex="7">{{button}}</button>
+    </form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2-multiple').select2();
+        });
+    </script>

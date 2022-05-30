@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="card w-10 mb-4">
+    <h5 class="card-header">{{title}}</h5>
+  </div>
+
+  <div class="card-columns">
+    <div ng-repeat="tipo in tipos">
+      <div class="card">
+        <div class="card-header">
+          <center><h2>{{tipo.periodo}}</h2></center>
+        </div>
+        <div class="card-body">
+          <p><strong>$</strong> {{tipo.precio}}</p>
+        </div>
+        <div class="card-footer">
+          <center><button type="button"
+            ng-show="action=='editarPeriodo'"
+            class="btn btn-default waves-effect"
+            ng-click="elegir(tipo.id)">Elegir
+          </button></center>
+          <center><button type="button"
+            ng-hide="action=='editarPeriodo'"
+            class="btn btn-default waves-effect"
+            ng-click="editarPrecio(tipo.id)">Editar precio
+          </button></center>
+        </div>
+      </div>
+    </div>
+    </div>
+
+</div>

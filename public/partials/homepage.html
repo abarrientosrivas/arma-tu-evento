@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="jumbotron jumbotron-fluid rounded py-4">
+		<div class="container">
+			<h3 class="display">Armá tu evento</h3>
+			<p class="lead">Indicanos qué es lo que buscás.</p>
+			<hr class="my-2">	
+			<div class="row" ng-include="'/partials/organizador.html'"></div>
+		</div>
+	</div>
+	<div class="card-columns">
+			<div ng-repeat="rubro in rubros" class="card" ng-click="gotoRubro(rubro)" onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='default';">
+				<img ng-src="/assets/rubros/{{rubro.rubroImage}}" alt="" class="card-img-top">
+				<div class="card-img-overlay">
+					<h2 class="card-title" style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">{{rubro.nombre}}</h2>
+				</div>
+			</div>
+		</div>
+</div>

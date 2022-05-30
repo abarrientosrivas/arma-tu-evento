@@ -1,0 +1,37 @@
+<div class="col-12 offset-md-2 col-md-8">
+	<li class="card mt-0">
+		<div class="card-header py-1">
+			<h5 ng-show="action=='proveedor'"> {{chat.cliente.apellido}} {{chat.cliente.nombre}} </h5>
+			<h5 ng-show="action=='cliente'"> {{chat.proveedor.nombre}} </h5>
+		</div>
+			<div class="card-body py-2" style="height: 450px;overflow-y: scroll;" id="chat">
+				<div ng-repeat="mensaje in mensajes">
+					<br>
+					<p class="card-text my-0 mr-2"><strong>{{mensaje.senderName}}</strong></p>
+					<p class="card-text my-0">{{mensaje.message}}</p>
+					<!-- show downloadable file -->
+					<div ng-if="mensaje.message_file">
+						<div class="card">
+							<a class="card-footer py-1" ng-click="saveData(mensaje.message_file)"
+								onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+								{{mensaje.message_file.filename}} <!--small> {{mensaje.message_file.filesize}}kb</small-->
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form ng-submit="sendMessage()">
+				<div class="row">
+					<input type="text"
+						placeholder="Escribir mensaje"
+						tabindex="1"
+						class="form-control col-8"
+						ng-model="newMessage">
+					<button type="submit" class="col-4"> Enviar</button>
+				</div>
+				<div class="row">
+					<input type='file' ng-model='fileMessage' base-sixty-four-input>
+				</div>
+			</form>
+	</li>
+</div>

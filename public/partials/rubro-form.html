@@ -1,0 +1,50 @@
+<div class="container">
+	<form id="rubroForm" class="form-horizontal" ng-submit="saveRubro()">
+	
+		<h3>Cargar nuevo rubro</h3>
+		<div class="form-group">
+			<h3><input type="text"
+				class="form-control"
+				id="rubro_nombre"
+				placeholder="Nombre del rubro"
+				tabindex="2"
+				ng-model="rubro.nombre">
+			<textarea type="text"
+					class="form-control"
+					id="rubro_descripcion"
+					placeholder="Descripción"
+					tabindex="3"
+					rows="5"
+					ng-model="rubro.descripcion"></textarea>
+		</div>		
+	
+		<div class="form-group">
+			<label><strong>Imagen para el rubro</strong></label>
+			<br>
+			<button
+				type="button"
+				id="inputImage2"
+				input-image
+				append-data-uri
+				resize
+				resize-max-height="150"
+				resize-max-width="150"
+				resize-quality="0.7"
+				ng-model="rubro.displayImage">
+				Añadir
+			</button>
+			<!-- <button type="button" ng-click="removeImage()">Quitar</button> -->
+			<img ng-show="rubro.displayImage" ng-src="{{rubro.displayImage.resized.dataURL}}"/>
+			<img ng-show="!rubro.displayImage" class="img-thumbnail img-fluid" ng-src="/assets/rubros/{{rubro.rubroImage}}"/>
+		</div>
+		<button type="submit"
+				class="btn btn-primary waves-effect"
+				tabindex="5">Guardar
+		</button>
+		<button type="submit"
+				class="btn btn-danger waves-effect"
+				ui-sref="rubros"
+				tabindex="5">Cancelar
+		</button>
+	</form>
+</div>

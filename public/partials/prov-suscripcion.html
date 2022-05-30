@@ -1,0 +1,51 @@
+<div class="container">
+			<h1>{{proveedor.nombre}}</h1>
+			<h3>Datos de suscripción</h3>
+      <hr class="my-2">
+	<form ng-submit="saveSusc()">
+  	<!-- <div class="form-group">
+    	<label for="periodo"><strong>Periodicidad de pago: </strong></label>
+    	<select name="periodo_select"
+            id="periodo_select"
+            ng-model="proveedor.tipo_susc"
+            tabindex="1">
+        <option value="Mensual">Mensual</option>
+        <option value="Trimestral">Trimestral</option>
+        <option value="Anual">Anual</option>
+    	</select>
+  	</div> -->
+  	<div class="form-group">
+	  	<div ng-show="proveedor.tipo_susc_id != null">
+			<strong>información del plan:</strong> {{tipo.periodo}} ${{tipo.precio}}
+		</div>
+		<p></p>
+		<div ng-show="proveedor.fin_susc != null">
+			<strong>Su suscripción finaliza:</strong> {{proveedor.fin_susc | date:'dd/MM/yyyy'}}
+		</div>
+		<p></p>
+	</div>
+	<a class="account-section-link"
+		ng-hide="proveedor.fin_susc != null"
+		ui-sref="proveedoresPago">
+    	Actualizar información de pago
+	</a>
+	<p></p>
+	<a class="account-section-link"
+		ng-hide="proveedor.destacado_rubro"
+		ui-sref="pagarRubro">
+    	Pagar destacado en RUBRO
+	</a>
+	<p></p>
+	<a type="button"
+		class="btn btn-primary waves-effect"
+		ui-sref="pagar({id:proveedor.id})"
+		ng-hide="proveedor.pago == true">
+		Pagar
+	</a>
+  	<button type="button"
+		class="btn btn-danger"
+		ng-hide="proveedor.pago==false || proveedor.pago == null">
+		Cancelar suscripción
+	</button>
+	</form>
+</div>

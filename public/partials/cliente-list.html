@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="input-field">
+        <i class="material-icons prefix">search</i>
+        <input placeholder="Buscar" type="text" ng-model="search">
+    </div>
+                
+
+
+    <div class="row">
+        <div ng-repeat="Cliente in Clientes | filter:search" class="col s3 m3">
+            <div class="card amber darken-4">
+                <div class="card-content white-text">
+                <span class="card-title">Nombre: {{Cliente.nombre}}</span>
+                <p>Apellido: {{Cliente.apellido}}</p>
+                <p>Mail: {{Cliente.email}}</p>
+                </div>
+                <div class="card-action">
+                    <a ui-sref="clientesList" ng-click="removeCliente(Cliente.id)">
+                        <i class="material-icons">delete</i>
+                    </a>
+                </div>
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button"
+                  class="btn btn-default waves-effect btn-sm float-sm-right"
+                  ng-click="removeCliente(Cliente.id)">
+                  <i class="material-icons">delete</i>
+                </button>
+            </div>
+        </div>
+    </div> 
+</div>

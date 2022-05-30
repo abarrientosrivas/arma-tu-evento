@@ -1,0 +1,11 @@
+<ul class="navbar-nav mr-auto">
+
+  <li class="nav-item">
+    <a class="nav-link" ui-sref="clientesNew">Registrarse</a>
+  </li>
+
+</ul>
+<a ng-if="!authenticated" class="btn btn-success" ui-sref="loginSelect">Iniciar sesión</a>
+<ng-controller ng-controller="AuthLoginCtrl">
+        <a ng-if="authenticated" class="btn btn-success" ng-click="logout()">Cerrar sesión</a>
+</ng-controller>

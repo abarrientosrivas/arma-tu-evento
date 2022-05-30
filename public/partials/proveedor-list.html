@@ -1,0 +1,71 @@
+<div class="container">
+	<!-- <div ng-show="currentUser.rol == 'admin'">
+		<h5>Proveedores registrados {{proveedores.length}}</h5>
+		<hr class="my-2">
+	</div> -->
+	<div class="card">
+		<h5 class="card-header">Proveedores</h5> <button class="btn btn-success float-right" ui-sref="proveedoresNew">Registrar nuevo</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-sm table-hover">
+			<thead class="thead-dark">                 
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>E-Mail</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody >
+				<tr ng-repeat="proveedor in proveedores">
+					<td ng-click="viewProveedor(proveedor.id) " 
+						onmouseover="this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{proveedor.id}}
+					</td>
+					<td ng-click="viewProveedor(proveedor.id)" 
+						onmouseover="this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{proveedor.nombre}}
+					</td>
+					<td ng-click="viewProveedor(proveedor.id)"
+						onmouseover="this.style.cursor='pointer';" 
+						onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+						{{proveedor.email}}
+					</td>
+					<td class="text-right">
+						<div class="btn-group btn-group-sm" role="group" aria-label="...">
+							<button type="button"
+								class="btn btn-warning waves-effect btn-sm float-sm-right"
+								ng-show="proveedor.destacado_rubro"
+								disabled>
+								Destacado
+							</button>
+						</div>
+						<div class="btn-group btn-group-sm" role="group" aria-label="...">
+							<a type="button" 
+								ng-hide="currentUser.rol=='admin'"
+								class="btn btn-default waves-effect"
+								ui-sref="proveedoresView">
+								<i class="material-icons">visibility</i>
+							</a>
+							<button type="button" 
+								class="btn btn-default waves-effect"
+								ng-click="removeProveedor(proveedor)">
+								<i class="material-icons">delete</i>
+							</button>
+							<a type="button" 
+								ng-hide="currentUser.rol=='admin'"
+								class="btn btn-default waves-effect"
+								ui-sref="proveedoresEdit">
+								<i class="material-icons">edit</i>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>	
+
+		</table>
+	</div>
+</div>

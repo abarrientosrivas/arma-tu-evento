@@ -1,0 +1,80 @@
+<div class="container">
+<!-- <div class="panel panel-default"> -->
+	<div class="btn-group">
+		<button type="button" class="btn btn-primary"
+			ng-if="currentUser.id == proveedor.id && currentUser.rol == 'proveedor'"
+			ui-sref="certificadosNew({id: proveedor.id})">
+			Agregar certificado
+		</button>
+		<button type="button" class="btn btn-primary"
+			ng-if="currentUser.rol == 'admin'"
+			ui-sref="certificadosAdd">
+			Crear certificado
+		</button>
+	</div>
+	<p></p>
+	<div class="card">
+		<h5 class="card-header">Certificados</h5>
+	</div>
+
+	<table class="table table-condensed table-hover">
+		<thead>
+			<div class="card-header">
+				<div class="input-field">
+          			<i class="material-icons prefix">search</i>
+          			<input placeholder="Buscar" type="text" ng-model="search">
+      			</div>
+			</div>
+
+			<tr>
+        		<th>Titulo</th>
+        		<th ng-hide="currentUser.rol == 'admin'">Fecha venc.</th>
+				<th>Obligatorio</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="certificado in certificados | filter:search">
+        		<td>{{certificado.titulo}}</td>
+        		<td ng-hide="currentUser.rol == 'admin'">{{certificado.fecha | date:'dd/MM/yyyy'}}</td>
+				<td><p ng-show="certificado.obligatorio" 
+						class="text-muted mb-1">
+						<i class="material-icons">done</i>
+					</p>
+				<td class="text-right">
+					<button type="button"
+						class="btn btn-default waves-effect"
+						ng-show="currentUser.rol == 'proveedor'"
+						ng-click="viewCertificado(certificado.id)">
+						<i class="material-icons">visibility</i>
+					</button>
+					<button type="button"
+						class="btn btn-default waves-effect"
+						ng-show="currentUser.rol == 'admin'"
+						ng-click="viewAdminCertificado(certificado.id)">
+						<i class="material-icons">visibility</i>
+					</button>
+					<button type="button"
+						class="btn btn-default waves-effect"
+						ng-show="currentUser.rol == 'admin'"
+						ng-click="editAdminCertificado(certificado.id)">
+						<i class="material-icons">edit</i>
+					</button>
+					<button type="button"
+						class="btn btn-default waves-effect"
+						ng-if="currentUser.id == proveedor.id && currentUser.rol == 'proveedor'"
+						ng-click="removeCertificado(certificado)">
+						<i class="material-icons">delete</i>
+					</button>
+					<button type="button"
+						class="btn btn-default waves-effect"
+						ng-if="currentUser.rol == 'admin'"
+						ng-click="removeCertificado(certificado)">
+						<i class="material-icons">delete</i>
+					</button>
+        		</td>
+			</tr>
+		</tbody>
+	</table>
+<!-- </div> -->
+</div>

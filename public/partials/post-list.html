@@ -1,0 +1,97 @@
+<div class="container-fluid">
+	<div class="input-field" ng-show="currentUser.rol == 'admin'">
+		<i class="material-icons">search</i>
+		<input placeholder="Buscar" type="text" ng-model="search">
+	</div>
+	<div ng-repeat="post in posts | filter:search">
+		<li class="card mt-3">
+		<!-- <li ng-class="post.destacado ? 'card text-white bg-warning mt-3' : 'card mt-3'"> -->
+			<div class="card-header py-1" ng-click="viewPost(post.id)" onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+				<span class="float-sm-right" ng-show="post.promedio!=null">{{post.promedio}} ★</span>
+				<button type="button"
+					class="btn btn-warning waves-effect btn-sm float-sm-right"
+					ng-show="post.destacado"
+					disabled>
+					Destacado
+				</button>
+				<h5 > {{post.titulo}} </h5>
+				<h6><small>{{post.rubro.nombre}}</small></h6>
+			</div>
+			<div class="card-body py-2">
+				<div class="row">
+					<div class="col-12 col-md-8">
+						<p class="card-text"> {{post.cuerpo}} </p>
+						<p ng-show="post.maxPersonas" class="text-muted mb-0">Máximo: {{post.maxPersonas}} personas</p>
+						<p ng-show="post.simultaneo" class="text-muted mb-1">Trabaja con eventos paralelos <i class="material-icons">done</i></p>
+					</div>
+					<div class="col-12 col-md-4">
+						<img ng-show="post.featuredImage" class="img-thumbnail img-fluid" ng-src="/assets/post-images/{{post.featuredImage}}" alt="...">
+					</div>
+				</div>
+			</div>
+			<div class="card-footer text-muted py-0">
+				{{proveedor.nombre}}{{post.proveedor.nombre}}
+				<div ng-show="action=='view'" class="btn-group float-right" role="group" aria-label="...">
+					<div class="btn-group">
+					<a type="button"
+						class="btn btn-default waves-effect"
+						ui-sref="denunciarPost({postId:post.id})"
+						ng-if="currentUser.rol == 'cliente'">
+						Denunciar
+					</a>
+					</div>
+					<button type="button-group"
+						class="btn-group btn-default waves-effect btn-sm"
+						ng-click="pagarPost(post)"
+						ng-show="!post.destacado"
+						ng-if="currentUser.id == proveedor.id && currentUser.rol == 'proveedor'">
+						Destacar publicación
+						<!-- <i class="material-icons">star</i> -->
+					</button>
+					<button type="button"
+						class="btn btn-default waves-effect btn-sm"
+						ng-click="removePost(post)"
+						ng-if="currentUser.id == proveedor.id && currentUser.rol == 'proveedor'">
+						<i class="material-icons">delete</i>
+					</button>
+					<a type="button"
+						class="btn btn-default waves-effect btn-sm"
+						ui-sref="postsEdit({id: post.id})"
+						ng-if="currentUser.id == proveedor.id && currentUser.rol == 'proveedor'">
+						<i class="material-icons">edit</i>
+					</a>
+				</div>
+				<button type="button"
+					class="btn btn-primary waves-effect btn-sm float-right"
+					ng-if="currentUser.rol == 'cliente'"
+					ng-show="!post.added && action != 'view'"
+					ng-click="addToEvent(post)">
+					Agregar a evento
+				</button>
+				<button type="button"
+					class="btn btn-danger waves-effect btn-sm float-right"
+					ng-if="currentUser.rol == 'cliente'"
+					ng-show="post.added"
+					ng-click="removeFromEvent(post)">
+					Quitar de evento
+				</button>
+			</div>
+		</li>
+	</div>
+</div>
+
+<!-- <div class="modal fade" id="exampleModalResena" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+			<div class="modal-header">
+		  	<h5 class="modal-title" id="exampleModalLabel">Escribir resena</h5>
+		  	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+		  	</button>
+			</div>
+			<div class="modal-body">
+				<div ng-include="'partials/resena-form.html'"></div>
+			</div>
+	  </div>
+	</div>
+</div> -->

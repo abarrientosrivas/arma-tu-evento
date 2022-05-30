@@ -1,0 +1,47 @@
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" ui-sref="proveedoresProfile({id: currentUser.id})">Mi Perfil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" ui-sref="proveedoresCalendario({id: currentUser.id})">Calendario</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" ui-sref="proveedorConversations({id: currentUser.id})">Chats</a>
+    </li>          
+    <li class="nav-item">
+      <a class="nav-link" ui-sref="solicitudes">Solicitudes</a>
+    </li>
+  </ul>
+
+
+  <ng-controller ng-controller="NotificationCtrl">
+    <ul class="navbar-nav navbar-header ml-auto">
+      <li class="nav-item dropdown ml-auto">
+        <a ng-if="newNotifications == 0" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">
+            notifications_none
+          </i>
+        </a>
+        <a ng-if="newNotifications >= 1" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">
+            notifications_active
+          </i>
+          {{newNotifications}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" style="max-height: 400px; overflow:auto;" aria-labelledby="navbarDropdown">
+          <a ng-if="notifications.length == 0"  class="dropdown-item">No hay notificaciones</a>
+          <a ng-class="n.read ? notifStyle={'background-color':'white'} : notifStyle={'background-color':'LightBlue'}" ng-repeat="n in notifications" class="dropdown-item" ui-sref="{{n.reference}}" ng-click="clickNotif(n)" ng-style="notifStyle">
+              <strong class="mb-0" style="max-width: 300px; text-overflow:ellipsis; white-space: nowrap; display: block; overflow: hidden;">{{n.title}}</strong>
+              <p class="text-muted mb-0" style="font-size:12px">{{n.created_at | date:'dd/MM/yyyy HH:mm'}}</p>
+              <p class="mb-1" style="max-width: 300px; text-overflow:ellipsis; white-space: nowrap; display: block; overflow: hidden;"> {{n.body}} </p>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </ng-controller>
+
+  <ng-controller ng-controller="AuthLoginCtrl">
+    <a ng-if="authenticated" class="btn btn-success" ng-click="logout()">Cerrar sesión</a>
+  </ng-controller>
+</div>

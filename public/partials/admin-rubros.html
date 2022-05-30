@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary"
+            ng-if="currentUser.rol == 'admin'"
+            ui-sref="rubroNew">
+            Agregar rubro
+        </button>
+    </div>
+    <p></p>
+    <div class="card-columns">
+		<div ng-repeat="rubro in rubros" class="card">
+			<img ng-src="/assets/rubros/{{rubro.rubroImage}}" alt="" class="card-img-top">
+			<div class="card-img-overlay">
+				<h2 class="card-title" style="color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">{{rubro.nombre}}</h2>
+			</div>
+		</div>
+	</div>
+</div>
+        

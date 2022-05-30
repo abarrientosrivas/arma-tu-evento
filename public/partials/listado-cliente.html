@@ -1,0 +1,44 @@
+<div class="container">
+	<!-- <div ng-show="currentUser.rol == 'admin'">
+		<h5>Clientes registrados {{Clientes.length}}</h5>
+		<hr class="my-2">
+	</div> -->
+	<div class="card">
+		<h5 class="card-header">Clientes</h5>
+	</div>
+	<!-- <table class="table table-condensed table-hover"> -->
+			<table class="table table-sm table-hover">
+		
+			<div class="input-field">
+          <i class="material-icons">search</i>
+          <input placeholder="Buscar" type="text" ng-model="search">
+      </div>
+			<thead class="thead-dark">
+			<tr>
+				<th>#</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+				<th class="text-right">E-Mail</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="Cliente in Clientes | filter:search">
+				<td ng-click="viewCliente(Cliente.id)">{{Cliente.id}}</td>
+        <td ng-click="viewCliente(Cliente.id)">{{Cliente.nombre}}</td>
+        <td ng-click="viewCliente(Cliente.id)">{{Cliente.apellido}}</td>
+				<td ng-click="viewCliente(Cliente.id)" class="text-right"> {{Cliente.email}}</td>
+				<td class="text-right">
+					<div class="btn-group btn-group-sm" role="group" aria-label="...">
+            	<button type="button"
+											class="btn btn-default btn-xs"
+                    	aria-label="Delete"
+                    	ng-click="removeCliente(Cliente.id)">
+            	<i class="material-icons">delete</i>
+							</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

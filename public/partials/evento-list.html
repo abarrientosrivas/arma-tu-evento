@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="input-field">
+		<i class="material-icons">search</i>
+		<input placeholder="Buscar" type="text" ng-model="search">
+	</div>
+	<div ng-repeat="evento in eventos | filter:search">
+		<li class="card mt-3">
+			<div class="card-header py-1">
+				<h5> {{evento.fecha | date:'dd/MM/yyyy'}} <small> {{evento.estado}} </small></h5>
+				<p> Cantidad de asistentes: {{evento.cantPersonas}} </p>
+				<p> Cantidad de publicaciones: {{evento.posts.length}} </p>
+			</div>
+			<div class="card-footer text-muted py-0">
+				{{cliente.nombre}} {{cliente.apellido}}
+					<button type="button"
+					ng-if="currentUser.id == cliente.id && currentUser.rol == 'cliente'"
+						class="btn btn-default waves-effect btn-sm float-right"
+						ng-click="cancelEvento(evento)">
+						<i class="material-icons">delete</i>
+					</button>
+			</div>
+		</li>
+	</div>
+</div>

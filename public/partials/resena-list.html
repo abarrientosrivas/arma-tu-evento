@@ -1,0 +1,42 @@
+<div class="container-fluid">
+	<div class="input-field">
+		<i class="material-icons">search</i>
+		<input placeholder="Buscar" type="text" ng-model="search">
+	</div>
+	<div class="card" ng-show="action == 'verClienteResenas'">
+		<h5 class="card-header">Resenas registradas</h5>
+	</div>
+	<div ng-repeat="resena in resenas | filter:search">
+		<li class="card mt-3">
+			<div class="card-header py-2" ng-click="viewResena(resena.id)" onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
+				<h5> {{resena.titulo}} </h5>
+				<th>Publicado: {{resena.created_at | date:'dd/MM/yyyy'}} por {{resena.nombre}} {{resena.apellido}}</th>
+				<!-- <th>Publicado: {{resena.created_at | date:'dd/MM/yyyy'}} por {{cliente = resena.cliente_id}}</th> -->
+				<!-- <input type="number" value="{{resena.cliente_id}}" id="clienteId" disabled> -->
+			</div>
+			<div class="card-body py-1">
+				<p class="card-text"> {{resena.cuerpo}} </p>
+			</div>
+			<div class="card-footer text-muted py-0">
+				Calificación: {{resena.calificacion}} ★
+				<!-- <button type="button"
+					class="btn btn-default waves-effect btn-sm float-sm-right"
+					ng-click="viewResena(resena.id)">
+					<i class="material-icons">visibility</i>
+				</button> -->
+				<a type="button"
+					class="btn btn-default waves-effect btn-sm float-sm-right"
+					ng-if="currentUser.id == resena.cliente_id && currentUser.rol == 'cliente'"
+					ui-sref="resenasEdit({resId: resena.id})">
+					<i class="material-icons">create</i>
+				</a>
+				<button type="button"
+					class="btn btn-default waves-effect btn-sm float-sm-right"
+					ng-if="currentUser.id == resena.cliente_id && currentUser.rol == 'cliente'"
+					ng-click="removeResena(resena)">
+					<i class="material-icons">delete</i>
+				</button>
+			</div>
+		</li>
+	</div>
+</div>

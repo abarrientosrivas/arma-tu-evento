@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="card">
+		<h5 class="card-header">Solicitudes pendientes</h5>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-sm table-hover">
+			<thead class="thead-dark">                 
+				<tr>
+					<th>Fecha</th>
+					<th>Cliente</th>
+					<th>Publicación</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="solicitud in solicitudes">
+					<td>{{solicitud.evento.fecha}}</td>
+					<td ng-click="viewCliente(solicitud.evento.cliente_id)" onmouseover="this.style.textDecoration='underline'; this.style.cursor='pointer';" onmouseout="this.style.textDecoration=''; this.style.cursor='default';">{{solicitud.cliApellido}} {{solicitud.cliNombre}}</td>
+					<td ng-click="viewPost(solicitud.post_id)" onmouseover="this.style.textDecoration='underline'; this.style.cursor='pointer';" onmouseout="this.style.textDecoration=''; this.style.cursor='default';">{{solicitud.post.titulo}}</td>
+					<td class="text-right">
+						<div class="btn-group btn-group-sm" role="group" aria-label="...">
+							<button type="button" 
+								class="btn btn-success waves-effect"
+								ng-disabled="solicitud.aceptada || solicitud.rechazada"
+								ng-click="replySolicitud(solicitud, true)">
+								<i class="material-icons">thumb_up</i>
+							</button>
+							<button type="button" 
+								class="btn btn-danger waves-effect"
+								ng-disabled="solicitud.aceptada || solicitud.rechazada"
+								ng-click="replySolicitud(solicitud, false)">
+								<i class="material-icons">thumb_down</i>
+							</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>	
+
+		</table>
+	</div>
+</div>

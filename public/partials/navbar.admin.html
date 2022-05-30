@@ -1,0 +1,33 @@
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <!-- <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plataforma
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" ui-sref="clientesList">Clientes</a>
+                <a class="dropdown-item" ui-sref="proveedoresList">Proveedores</a>
+              </div>
+            </div> -->
+            <a class="nav-link" ui-sref="plataforma">Plataforma</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="listDenuncias">Denuncias</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="certificadosAdmin">Certificados</a>
+          </li>                 
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="pagos">Pagos</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" ui-sref="rubros">Rubros</a>
+          </li> -->
+        </ul>
+      
+        <ng-controller ng-controller="AuthLoginCtrl">
+          <a ng-if="authenticated" class="btn btn-success" ng-click="logout()">Cerrar sesión</a>
+        </ng-controller>
+</div>
