@@ -60,15 +60,15 @@ class DatabaseSeeder extends Seeder
           ]);
         }
 
-        Admin::firstOrCreate([
-            'email' => 'alexis@armatuevento.com',
-            'password' => Hash::make('alexis')
-        ]);
+        // Admin::firstOrCreate([
+        //     'email' => 'alexis@armatuevento.com',
+        //     'password' => Hash::make('alexis')
+        // ]);
         
-        Admin::firstOrCreate([
-            'email' => 'matias@armatuevento.com',
-            'password' => Hash::make('matias')
-        ]);
+        // Admin::firstOrCreate([
+        //     'email' => 'matias@armatuevento.com',
+        //     'password' => Hash::make('matias')
+        // ]);
 
         // Create 10 records of proveedor
         factory(App\Proveedor::class, 20)->create()->each(function($proveedor){
