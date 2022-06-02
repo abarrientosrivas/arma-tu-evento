@@ -9,11 +9,11 @@ en una nueva PC(Linux), hacer lo siguiente:
 1. Tener **PHP7, Python2, NPM y MariaDB** instalados.
 2. Crear base de datos Homestead con utf8_general_ci.
 3. Configurar .env con los datos de la db.
-4. Seguir los pasos de https://getcomposer.org/download/ para obtener el instalador.
-5. Se necesitan habilitar las extensiones pdo-mysql y gd en php.ini
-6. Correr composer.phar utilizando php7 y con el parametro --1 para forzar composer 1.
+4. Seguir los pasos de https://getcomposer.org/download/ para obtener el instalador. Ejecutar con el parametro --1 para forzar composer 1.
+5. Se necesitan habilitar las extensiones pdo-mysql y gd en php.ini (php7-gd debe ser instalado)
+6. Correr composer.phar utilizando php7.
 7. Levantar la base de datos de MariaDB.
-8. Ejecutar el comando 'sudo npm install -g npm@6' para forzar la version 6 de npm.
+8. Ejecutar el comando 'sudo npm install -g npm@6' para forzar la version 6 de npm. (No parece ser crucial instalar los modulos de node)
 9. Utilizando **PHP7** llamar a los comandos artisan key:generate, artisan migrate, artisan db:seed (para staging de datos de prueba), y artisan serve.
 10. La plataforma debería estar servida en localhost:8000.
 11. Para levantar la plataforma a la web utilizar **php7-apache**.

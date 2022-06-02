@@ -18,6 +18,10 @@ class SearchController extends Controller
      */
     public function search(int $dateMillis,int $cantPersonas)
     {
+        if($cantPersonas < 0 || $dateMillis < (microtime(true) -86400000)){
+            abort(404);
+        }
+
         $timestamp = ($dateMillis/1000) - 10800;
         // Get posts
         $posts = Post::whereNotIn('id',function($query) use ($timestamp){
