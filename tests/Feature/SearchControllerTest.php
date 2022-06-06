@@ -15,6 +15,7 @@ class SearchControllerTest extends TestCase
      */
     public function test_invalid_values_search()
     {
+
         $response = $this->get("api/search/0/0");
         $response->assertStatus(404);
 

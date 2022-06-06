@@ -18,7 +18,8 @@ class SearchController extends Controller
      */
     public function search(int $dateMillis,int $cantPersonas)
     {
-        if($cantPersonas < 0 || $dateMillis < (microtime(true) -86400000)){
+
+        if($cantPersonas < 0 || $dateMillis < strtotime('yesterday')){
             abort(404);
         }
 
