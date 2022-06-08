@@ -18,8 +18,7 @@ class SearchController extends Controller
      */
     public function search(int $dateMillis,int $cantPersonas)
     {
-
-        if($cantPersonas < 0 || $dateMillis < strtotime('yesterday')){
+        if($cantPersonas < 0 || $dateMillis < (strtotime('yesterday') * 1000)){
             abort(404);
         }
 

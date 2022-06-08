@@ -42,7 +42,7 @@ angular.module('Client')
 		$scope.searchPosts = function() {
 			$scope.action = 'results';
 			$scope.search.dateMillis = $scope.search.fecha.getTime();
-			if($scope.search.cantPersonas == ''){$scope.search.cantPersonas = '-'}
+			if($scope.search.cantPersonas == '' || $scope.search.cantPersonas == '-' ){$scope.search.cantPersonas = 0}
 			allPosts = SearchResource.array($scope.search);
 			allPosts.$promise.then(function(data){
 				$scope.posts = allPosts;
