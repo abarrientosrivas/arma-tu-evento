@@ -24,8 +24,8 @@
 			<input id="fecha" 
 				   type="date"
 				   placeholder="dd-mm-yyyy"
-				   min="1997-01-01" 
-				   max="2030-12-31"
+				   min="2022-06-06" 
+				   max="2999-12-31"
 				   tabindex="1"
 				   ng-disabled="action == 'newEvent'"
 				   ng-model="search.fecha"
@@ -49,7 +49,7 @@
 						min="0" max="1000000"
 						ng-disabled="action == 'newEvent'"
 						ng-class="action == 'newEvent' ? 'form-control-plaintext' : 'form-control'"
-						oninput="this.value=this.value.replace(/^((?!(^[0-9]{0,6}|1000000)$).)*$/,'');"
+						oninput="this.value=this.value.replace(/^((?!(^[0-9]{0,6}|1000000)$).)*$/,'0');"
 						ng-model="search.cantPersonas">
 				</div>
 			</div>
