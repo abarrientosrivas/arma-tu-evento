@@ -34,10 +34,10 @@ class SearchControllerTest extends TestCase
 
     public function test_valid_post_search()
     {
-        $response = $this->get("/api/search/100000000000/10");
+        $response = $this->get("/api/search/16547918040/10");
         $response->assertStatus(200);
 
-        $response = $this->get("/api/search/100000000000/0");
+        $response = $this->get("/api/search/16547918040/0");
         $response->assertStatus(200);
     }
 }
