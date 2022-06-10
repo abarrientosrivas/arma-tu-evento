@@ -10,6 +10,13 @@ angular.module('Client')
 		$scope.newEvent.posts = [];
 		$scope.rubros = RubroResource.query({action: 'posts'});
 
+		$scope.postsTable = [];
+		$scope.currentPage = 0;
+		$scope.numPerPage = 15;
+		$scope.totalItems = 0;
+		$scope.maxSize = 2;
+
+
 		if (parseInt($stateParams.dateMillis)) { $scope.search.fecha = new Date(parseInt($stateParams.dateMillis)); }
 		else { $scope.search.fecha = new Date(); }
 		$scope.newEvent.fecha = $scope.search.fecha;
@@ -32,8 +39,14 @@ angular.module('Client')
 		
 		var allPosts = SearchResource.array($scope.search);
 		allPosts.$promise.then(function(data){
-			$scope.posts = allPosts;
-			nullLast($scope.posts);
+			$scope.totalItems = allPosts.data.count;
+			$scope.postsTable = allPosts.data;
+			console.log($scope.totalItems);
+			console.log($scope.postsTable);
+			console.log(allPosts);
+
+			//$scope.posts = allPosts;
+			//nullLast($scope.posts);
 		}, function(error){
 			console.log(error);
 			return;

@@ -10,7 +10,7 @@
 			}, {
 				array: {
 					method: 'GET',
-					isArray: true
+					isArray: false
 				}
 		 });	
 	});

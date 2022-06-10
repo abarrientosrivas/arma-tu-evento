@@ -42,7 +42,7 @@ class SearchController extends Controller
                         ->orderBy('posts.destacado', 'DESC')
                         ->orderBy('maxPersonas')    
                         ->orderBy('posts.created_at', 'DESC')
-                        ->get();
+                        ->paginate(10);
        
         return response()->json($posts->toArray());
     }
