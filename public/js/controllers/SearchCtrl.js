@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Client')
-	.controller('SearchCtrl', function($scope, EventoResource, SearchResource, RubroResource, NotificacionResource, $state, $filter, $stateParams, $rootScope) {
+	.controller('SearchCtrl', function($scope, EventoResource, SearchResource, RubroResource, NotificacionResource, $state, $filter, $stateParams, $rootScope, $http) {
 
 		$scope.action = 'results';
 		$scope.posts = {};
@@ -41,9 +41,7 @@ angular.module('Client')
 		allPosts.$promise.then(function(data){
 			$scope.totalItems = allPosts.data.count;
 			$scope.postsTable = allPosts.data;
-			console.log($scope.totalItems);
-			console.log($scope.postsTable);
-			console.log(allPosts);
+			$scope.paginationData = allPosts;
 
 			//$scope.posts = allPosts;
 			//nullLast($scope.posts);
@@ -52,14 +50,17 @@ angular.module('Client')
 			return;
 		});
 
+		// TODO adaptar esta función para recibir posts parametrizados, no solo busqueda general
 		$scope.searchPosts = function() {
 			$scope.action = 'results';
 			$scope.search.dateMillis = $scope.search.fecha.getTime();
 			if($scope.search.cantPersonas == '' || $scope.search.cantPersonas == '-' ){$scope.search.cantPersonas = 0}
 			allPosts = SearchResource.array($scope.search);
 			allPosts.$promise.then(function(data){
-				$scope.posts = allPosts;
-				nullLast($scope.posts);
+				//$scope.posts = allPosts;
+				console.log(allPosts);
+				$scope.paginationData = allPosts;
+				nullLast($scope.paginationData.data);
 			}, function(error){
 				console.log(error);
 				return;
@@ -146,5 +147,31 @@ angular.module('Client')
 				console.log(error);
 				return;
 			});
+		}
+
+		// Actualiza la data de la página con respecto a las publicaciones presentadas según la url de páginado que se le de.
+		$scope.presentPostsFromURL = function(url){
+			$http({
+				method: 'GET',
+				url: url
+			}).then(function successCallback(response) {
+				$scope.paginationData = response.data;
+				}, function errorCallback(error) {
+				alert(error);
+				console.log(error);
+				});
+		}
+
+		// Actualiza la data de la página con respecto a las publicaciones presentadas según el número de página que se le de.
+		$scope.presentPostsFromPageNumber = function(pageNumber){
+			$http({
+				method: 'GET',
+				url: '/api/search/1655086304922/100?page=' + pageNumber
+			}).then(function successCallback(response) {
+				$scope.paginationData = response.data;
+				}, function errorCallback(error) {
+				alert(error);
+				console.log(error);
+				});
 		}
 	});

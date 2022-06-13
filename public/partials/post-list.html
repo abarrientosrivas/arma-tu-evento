@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div ng-repeat="post in postsTable">
+	<div ng-repeat="post in paginationData.data">
 		<li class="card mt-3">
 		<!-- <li ng-class="post.destacado ? 'card text-white bg-warning mt-3' : 'card mt-3'"> -->
 			<div class="card-header py-1" ng-click="viewPost(post.id)" onmouseover="this.style.backgroundColor='AliceBlue'; this.style.cursor='pointer';" onmouseout="this.style.backgroundColor=''; this.style.cursor='default';">
@@ -74,14 +74,15 @@
 			</div>
 		</li>
 	</div>
-    <paging-control paging-size="pagingSize" noofitem="dataPerPage" total-items="totalItems" display-items="displayItems"></paging-control>
-	<pagination
-		ng-model="currentPage"
-		total-items="20"
-		max-size="maxSize"
-		boundary-links="true"
-		ng-change="getPage()">
-	</pagination>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination" ng-show="paginationData.last_page>1">
+			<li class="page-item" ng-show="paginationData.prev_page_url"><a class="page-link" ng-click="presentPostsFromURL(paginationData.prev_page_url)">Anterior</a></li>
+			<li ng-repeat="x in [].constructor(paginationData.last_page) track by $index" class="page-item" ng-class="{'active' : paginationData.current_page == $index+1}">
+				<a class="page-link" ng-click="presentPostsFromPageNumber($index+1)">{{ $index+1 }}</a>
+			</li>
+			<li class="page-item" ng-show="paginationData.next_page_url"><a class="page-link" ng-click="presentPostsFromURL(paginationData.next_page_url)">Siguiente</a></li>
+		</ul>
+	  </nav>
 </div>
 
 <!-- <div class="modal fade" id="exampleModalResena" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
