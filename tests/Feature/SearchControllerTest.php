@@ -19,7 +19,7 @@ class SearchControllerTest extends TestCase
         $response = $this->get("api/search/0/0");
         $response->assertStatus(404);
 
-        $response = $this->get("api/search/1654041600/0");
+        $response = $this->get("api/search/1655054145/0");
         $response->assertStatus(404);
 
         $response = $this->get("api/search/1654041600/-100");
