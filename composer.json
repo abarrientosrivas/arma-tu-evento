@@ -13,7 +13,6 @@
         "laravel/tinker": "^1.0",
         "nesbot/carbon": "1.25.*",
         "pusher/pusher-php-server": "^3.2",
-        "todopago/php-sdk": "^1.10",
         "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {
