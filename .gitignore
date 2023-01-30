@@ -23,5 +23,5 @@ Homestead.json
 .phpunit.result.cache
 
 # Composer
-composer*
-Composer*
+composer.phar
+composer.lock
