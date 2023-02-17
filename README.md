@@ -32,6 +32,13 @@ El entorno de desarrollo está pensado para un sistema operativo Linux, pero es 
 en Windows, para ello utilizar alguna terminal como GitBash, y la herramienta de servidor apache/sql/php XAMPP.
 Es probable que necesite buscar tutoriales equivalentes para los pasos anteriores.
 
+### Windows 
+1. Instalar **XAMPP**. Instalar php 7.2 para que sea compatible con composer.
+2. Guardar el proyecto en "xampp/htdocs".
+3. Modificar el archivo "xampp/apache/conf/extra/httpdvhosts.conf". Editar el DocumentRoot y el ServerName.
+4. Abrir como administrador el archivo "C:/Windows/System32/drivers/etc/hosts" y agregar 127.0.0.1 arma-tu-evento.test.
+5. Crear la base de datos con **phpMyAdmin** y modificar .env con los datos de la misma.
+
 ---
 
 ## Create a file
