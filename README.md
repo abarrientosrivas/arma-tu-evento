@@ -3,8 +3,7 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
 
 ## Setup del proyecto
 
-Para levantar el servidor de Laravel/Angular y probar la plataforma
-en una nueva PC(Linux), hacer lo siguiente:
+(Esta guía quizá se encuentre incompleta, es probable que haya que correr comandos como npm, yarn u otros managers de packetes para instalar las dependencias de AngularJS.)
 
 ### Linux 
 1. Tener **PHP7.4.33 y MariaDB** instalados.
@@ -33,4 +32,8 @@ en una nueva PC(Linux), hacer lo siguiente:
     > La librería faker está fuera de soporte y quizá sea necesario hacer correcciones en el source
 8. La plataforma debería estar servida en localhost:8000.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1abda58 (dev config fixes)
 ---

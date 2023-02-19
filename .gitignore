@@ -25,3 +25,4 @@ Homestead.json
 # Composer
 composer.phar
 composer.bat
+composer-setup.php
