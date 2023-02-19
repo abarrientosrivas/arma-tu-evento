@@ -33,7 +33,11 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
 8. La plataforma debería estar servida en localhost:8000.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 1abda58 (dev config fixes)
+=======
+
+>>>>>>> a1a9ef23dd55c35e1bc427fa468d7fd00fc7001c
 ---
