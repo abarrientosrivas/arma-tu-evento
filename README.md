@@ -23,6 +23,7 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
     > Se utiliza **XAMPP** únicamente para facilitar la instalación de la base de datos sql y la herramienta **phpMyAdmin**.
     > La versión de php necesaria para el proyecto no es compatible con el apache por default.
 2. Crear la base de datos con **phpMyAdmin** y modificar .env con los datos de la misma.
+    > Asegurarse de seleccionar el formato **utf8_general_ci**.
 3. Seguir los pasos de https://getcomposer.org/download/ para obtener el instalador.
     > Utilice el método manual por linea de comando para obtener el archivo "composer.phar" local
 4. Será necesario activar extensiones en el php de **XAMPP**.

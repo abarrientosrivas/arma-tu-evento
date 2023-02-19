@@ -1,13 +1,4 @@
 <div class="container-fluid">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination" ng-show="paginationData.last_page>1">
-			<li class="page-item" ng-show="paginationData.prev_page_url"><a class="page-link" ng-click="presentPostsFromURL(paginationData.prev_page_url)">Anterior</a></li>
-			<li ng-repeat="x in [].constructor(paginationData.last_page) track by $index" class="page-item" ng-class="{'active' : paginationData.current_page == $index+1}">
-				<a class="page-link" ng-click="presentPostsFromPageNumber($index+1)">{{ $index+1 }}</a>
-			</li>
-			<li class="page-item" ng-show="paginationData.next_page_url"><a class="page-link" ng-click="presentPostsFromURL(paginationData.next_page_url)">Siguiente</a></li>
-		</ul>
-	  </nav>
 	<div ng-repeat="post in paginationData.data">
 		<li class="card mt-3">
 		<!-- <li ng-class="post.destacado ? 'card text-white bg-warning mt-3' : 'card mt-3'"> -->
