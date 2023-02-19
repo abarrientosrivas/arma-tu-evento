@@ -22,7 +22,7 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-composer.json
-composer.lock
-composer.bat 
+# Composer
 composer.phar
+composer.bat
+composer-setup.php
