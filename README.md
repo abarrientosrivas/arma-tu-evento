@@ -23,6 +23,7 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
     > Se utiliza **XAMPP** únicamente para facilitar la instalación de la base de datos sql y la herramienta **phpMyAdmin**.
     > La versión de php necesaria para el proyecto no es compatible con el apache por default.
 2. Crear la base de datos con **phpMyAdmin** y modificar .env con los datos de la misma.
+    > Asegurarse de seleccionar el formato **utf8_general_ci**.
 3. Seguir los pasos de https://getcomposer.org/download/ para obtener el instalador.
     > Utilice el método manual por linea de comando para obtener el archivo "composer.phar" local
 4. Será necesario activar extensiones en el php de **XAMPP**.
@@ -31,13 +32,3 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
 7. Utilizando **PHP7.4.33** llamar a los comandos `artisan key:generate`, `artisan migrate`, `artisan db:seed` (para staging de datos de prueba), y `artisan serve`.
     > La librería faker está fuera de soporte y quizá sea necesario hacer correcciones en el source
 8. La plataforma debería estar servida en localhost:8000.
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 1abda58 (dev config fixes)
-=======
-
->>>>>>> a1a9ef23dd55c35e1bc427fa468d7fd00fc7001c
----
