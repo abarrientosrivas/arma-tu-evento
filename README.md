@@ -31,9 +31,3 @@ Para facilitar el trato entre organizadores y proveedores en el armado de evento
 7. Utilizando **PHP7.4.33** llamar a los comandos `artisan key:generate`, `artisan migrate`, `artisan db:seed` (para staging de datos de prueba), y `artisan serve`.
     > La librería faker está fuera de soporte y quizá sea necesario hacer correcciones en el source
 8. La plataforma debería estar servida en localhost:8000.
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 1abda58 (dev config fixes)
----
