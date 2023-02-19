@@ -16,7 +16,7 @@ class SearchController extends Controller
      * @param  int  $cantPersonas
      * @return \Illuminate\Http\Response
      */
-    public function search($dateMillis,$cantPersonas)
+    public function search(int $dateMillis,int $cantPersonas)
     {
         $timestamp = ($dateMillis/1000) - 10800;
         // Get posts

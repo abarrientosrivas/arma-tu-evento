@@ -1,17 +1,7 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
-
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
-
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
-
----
-
 # Armá Tu Evento
 Para facilitar el trato entre organizadores y proveedores en el armado de eventos.
 
 ## Setup del proyecto
-
-(Esta guía quizá se encuentre incompleta, es probable que haya que correr comandos como npm, yarn u otros managers de packetes para instalar las dependencias de AngularJS.)
 
 Para levantar el servidor de Laravel/Angular y probar la plataforma
 en una nueva PC(Linux), hacer lo siguiente:
@@ -42,6 +32,5 @@ en una nueva PC(Linux), hacer lo siguiente:
 7. Utilizando **PHP7.4.33** llamar a los comandos `artisan key:generate`, `artisan migrate`, `artisan db:seed` (para staging de datos de prueba), y `artisan serve`.
     > La librería faker está fuera de soporte y quizá sea necesario hacer correcciones en el source
 8. La plataforma debería estar servida en localhost:8000.
-
 
 ---
